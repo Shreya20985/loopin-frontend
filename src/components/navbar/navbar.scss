@@ -1,0 +1,101 @@
+@import "../../style.scss";
+.navbar {
+  @include themify($themes) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 30px;
+    height: 60px;
+    border-bottom: 1px solid themed("border");
+    position: sticky;
+    top: 0;
+    background-color: themed("bg");
+    color: themed("textColor");
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+
+      span {
+        font-weight: 800;
+        font-size: 22px;
+        color: themed("logo");
+        letter-spacing: -0.5px;
+      }
+
+      svg {
+        cursor: pointer;
+        opacity: 0.75;
+        transition: opacity 0.15s ease;
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      .search {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-radius: 20px;
+        padding: 8px 16px;
+        background-color: themed("bgSoft");
+
+        input {
+          border: none;
+          width: 400px;
+          background-color: transparent;
+          color: themed("textColor");
+          outline: none;
+          font-size: 14px;
+
+          @include mobile {
+            display: none;
+          }
+
+          @include tablet {
+            width: 180px;
+          }
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      @include mobile {
+        display: none;
+      }
+
+      svg {
+        cursor: pointer;
+        opacity: 0.75;
+        transition: opacity 0.15s ease;
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      .user {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        img {
+          width: 34px;
+          height: 34px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 2px solid themed("border");
+          transition: border-color 0.15s ease;
+          &:hover {
+            border-color: #5271ff;
+          }
+        }
+      }
+    }
+  }
+}

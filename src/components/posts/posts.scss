@@ -1,0 +1,30 @@
+@import "../../style.scss";
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  .empty {
+    @include themify($themes) {
+      border: 1px dashed themed("border");
+      border-radius: 16px;
+      padding: 50px 20px;
+      text-align: center;
+      color: themed("textColorSoft");
+
+      span {
+        display: block;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: themed("textColor");
+      }
+
+      p {
+        font-size: 14px;
+        margin: 0;
+      }
+    }
+  }
+}

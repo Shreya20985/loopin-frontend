@@ -1,0 +1,144 @@
+.welcome {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  // FIX: this used to be background: url("/upload/welcome-bg.jpg") ...
+  // The /upload folder only ever gets populated with user profile/cover
+  // pictures, so unless that exact file was manually placed there, the
+  // image 404s and the whole hero section renders with nothing behind
+  // it — which is almost certainly why the page looked small/plain: it
+  // was really just a card floating on a blank background. A gradient
+  // always renders, no upload required, and still looks intentional.
+  background: linear-gradient(135deg, #1a1a3d, #3348c4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 40px 20px;
+  box-sizing: border-box;
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(20, 20, 50, 0.55),
+      rgba(82, 113, 255, 0.35)
+    );
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    max-width: 1100px;
+    width: 100%;
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .brand {
+      color: white;
+      flex: 1;
+
+      h1 {
+        font-size: 88px;
+        font-weight: 800;
+        margin: 0;
+        letter-spacing: -2px;
+
+        @media (max-width: 900px) {
+          font-size: 56px;
+        }
+      }
+
+      .tagline {
+        font-size: 22px;
+        opacity: 0.9;
+        margin: 12px 0 30px 0;
+      }
+
+      .features {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        font-size: 17px;
+
+        li {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          opacity: 0.92;
+        }
+
+        @media (max-width: 900px) {
+          align-items: center;
+        }
+      }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(10px);
+      padding: 55px;
+      border-radius: 20px;
+      box-shadow: 0px 25px 60px rgba(0, 0, 0, 0.35);
+      width: 380px;
+      max-width: 100%;
+      box-sizing: border-box;
+      flex-shrink: 0;
+
+      h2 {
+        margin: 0 0 8px 0;
+        color: #222;
+        font-size: 28px;
+      }
+
+      p {
+        color: #666;
+        font-size: 15px;
+        margin-bottom: 30px;
+      }
+
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+
+        button {
+          padding: 15px;
+          border: none;
+          border-radius: 10px;
+          font-weight: bold;
+          cursor: pointer;
+          font-size: 16px;
+          transition: transform 0.15s ease, opacity 0.15s ease;
+
+          &:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+          }
+        }
+
+        .loginBtn {
+          background-color: #5271ff;
+          color: white;
+        }
+
+        .registerBtn {
+          background-color: white;
+          color: #5271ff;
+          border: 2px solid #5271ff;
+        }
+      }
+    }
+  }
+}
